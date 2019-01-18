@@ -1,0 +1,13 @@
+.wrapper {
+    display: flex;
+}
+
+.sidebar {
+    flex: 0 0 35%;
+    height: 100vh;
+    border: 3px solid black;
+}
+
+.bracket {
+    flex: 1;
+}

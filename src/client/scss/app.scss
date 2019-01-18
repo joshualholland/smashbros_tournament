@@ -1,0 +1,15 @@
+$theme-colors:(
+    "primary": #E2E2E2,
+    "secondary": #040404,
+    "success": #727272
+);
+
+
+
+
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+.covalence-blue {
+    color: #0091ea;
+}

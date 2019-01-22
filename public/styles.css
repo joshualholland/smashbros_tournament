@@ -11,3 +11,16 @@
 .bracket {
     flex: 1;
 }
+
+.name-box {
+    width: 25px;
+    height: 10px;
+}
+
+.bracket-line {
+    border-top: 2px solid #C000CC;
+    position: absolute;
+    float: right;
+    width: 90px;
+    margin-left: 10%;
+}

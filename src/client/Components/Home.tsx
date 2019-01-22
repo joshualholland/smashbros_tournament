@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
+import Bracket from './Bracket';
 
 
 // import TournamentBracket from './Bracket';
@@ -39,11 +40,11 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
         )
     }
 
-    // returnBracket() {
-    //     return (
-    //         // <TournamentBracket />
-    //     )
-    // }
+    returnBracket() {
+        return (
+            <Bracket />
+        )
+    }
 
     render() {
         return (
@@ -69,7 +70,7 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
                         </div>
                     </div>
                     <div className="bracket">
-                        {/* {this.returnBracket()} */}
+                        {this.returnBracket()}
                     </div>
                 </div>
             </>

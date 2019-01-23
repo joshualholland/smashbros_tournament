@@ -1,15 +1,18 @@
-.wrapper {
+/* .wrapper {
     display: flex;
-}
+} */
 
-.sidebar {
-    flex: 0 0 35%;
-    height: 100vh;
+.participants {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
     border: 3px solid black;
 }
 
 .bracket {
-    flex: 1;
+    float: left;
+    clear: left;
 }
 
 .name-box {

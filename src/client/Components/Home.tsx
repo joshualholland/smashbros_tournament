@@ -50,7 +50,7 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
         return (
             <>
                 <div className="wrapper">
-                    <div className="sidebar bg-primary">
+                    <div className="participants col-10 mx-auto bg-primary">
                         <div className="container">
                             <div className="header">
                                 <h2 className="display-4">Players:</h2>
@@ -61,11 +61,9 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
                                     {this.returnPlayers()}
                                 </ul>
                             </div>
-                            <div className="button">
-                                <Link to='/register' className="btn btn-sm btn-secondary">Add Player</Link>
-                            </div>
-                            <div className="button mx-auto">
-                                <button className="btn btn-lg btn-secondary mt-5">Generate</button>
+                            <div className="button particpants-buttons mt-2">
+                                <Link to='/register' className="btn btn-secondary mr-3">Add Player</Link>
+                                <button className="btn text-white" style={{ backgroundColor: '#C000CC' }}>Generate</button>
                             </div>
                         </div>
                     </div>

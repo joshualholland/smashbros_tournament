@@ -2,7 +2,7 @@
     display: flex;
 } */
 
-.participants {
+.participants, .tourn-info {
     display: flex;
     flex-direction: column;
     flex: 1;

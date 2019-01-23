@@ -38,7 +38,7 @@ export default class SinglePlayer extends React.Component<ISingleProps, ISingleS
                 <div className="card-body">
                     <h5 className="card-title">{this.state.player.username}</h5>
                     <p className="card-text">Possible Win Loss Ratio here</p>
-                    <Link to={`/edit/${this.props.match.params.id}`} style={{ float: 'left' }} className="btn btn-secondary">Edit Player</Link>
+                    <Link to={`/edit/${this.props.match.params.id}`} style={{ float: 'left' }} className="btn btn-secondary mr-2">Edit Player</Link>
                     <button className='btn btn-secondary' style={{ float: 'left' }} onClick={() => this.deletePlayer()}>Delete</button>
                 </div>
             </div>

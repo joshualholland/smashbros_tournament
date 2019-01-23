@@ -6,7 +6,7 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
     constructor(props: ITournamentProps) {
         super(props)
         this.state = {
-            participants: ["cold", "tuna no crust", "jean", "the-law"],
+            participants: [],
             tournament: {
                 id: '',
                 name: '',
@@ -25,14 +25,28 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
         }
     }
 
+    async componentDidMount() {
+        try {
+            let res = await json('/api/players')
+            let playerArray = res.map((key: any) => {
+                return {
+                    username: key.username
+                }
+            })
+            console.log(playerArray)
+            this.setState({ participants: playerArray })
+        } catch (e) {
+            console.log(e)
+        }
+    };
+
     renderBoxes() {
         return (
             this.state.participants.map((participant) => {
                 return (
                     <>
                         <div className="name-box bg-primary m-3">
-                            <input className="bg-primary" placeholder={participant} type="text" />
-                            <div className="bracket-line"></div>
+                            <input className="bg-primary" placeholder={participant.username} type="text" />
                         </div>
                     </>
                 )
@@ -43,8 +57,8 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
     render() {
         return (
             <>
-                <div className="title">
-                    <h4>{this.state.tournament.name}</h4>
+                <div className="title mx-auto text-center">
+                    <h1>{this.state.tournament.name}</h1>
                 </div>
                 <div className="single-match m-5">
                     {this.renderBoxes()}
@@ -75,7 +89,9 @@ interface ITournamentProps {
 };
 
 interface ITournamentState {
-    participants: string[];
+    participants: {
+        username: string
+    }[];
     tournament: {
         id: string,
         name: string

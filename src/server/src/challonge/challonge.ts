@@ -38,7 +38,7 @@ const addParticipants = () => {
     return new Promise((resolve, reject) => {
         client.participants.create({
             id: '5454332',
-            participant: { name: "Cold" },
+            participants: [][name],
             callback: (err: any, data: any) => {
                 if (err) reject(err);
                 resolve(data);

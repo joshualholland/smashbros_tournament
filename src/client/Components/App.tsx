@@ -9,6 +9,7 @@ import Jumbotron from './Jumbotron';
 import Registration from './Registration';
 import SinglePlayer from './SinglePlayer';
 import Edit from './Edit';
+import Bracket from './Bracket';
 
 export default class App extends React.Component {
     render() {
@@ -23,6 +24,7 @@ export default class App extends React.Component {
                         <Route exact path='/register' component={Registration} />
                         <Route exact path='/player/:id' component={SinglePlayer} />
                         <Route exact path='/edit/:id' component={Edit} />
+                        <Route exact path='/bracket' component={Bracket} />
                     </Switch>
                 </>
             </Router>

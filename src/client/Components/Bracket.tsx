@@ -45,9 +45,7 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
             this.state.participants.map((participant) => {
                 return (
                     <>
-                        <div className="name-box bg-primary m-3">
-                            <input className="bg-primary" placeholder={participant.username} type="text" />
-                        </div>
+                        <div className="name-box bg-primary">{participant.username}</div>
                     </>
                 )
             })
@@ -60,26 +58,9 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
                 <div className="title mx-auto text-center">
                     <h1>{this.state.tournament.name}</h1>
                 </div>
-                <div className="single-match m-5">
+                <div className="section">
                     {this.renderBoxes()}
                 </div>
-                {/* <div className="name-box bg-primary m-3">
-                        <input className="bg-primary" placeholder={this.state.participants[0]} type="text" />
-                        <div className="bracket-line"></div>
-                    </div>
-                    <div className="name-box bg-primary m-3">
-                        <input className="bg-primary" type="text" placeholder={this.state.participants[1]} />
-                    </div>
-                </div>
-                <div className="single-match m-5">
-                    <div className="name-box bg-primary m-3">
-                        <input className="bg-primary" placeholder={this.state.participants[2]} type="text" />
-                        <div className="bracket-line"></div>
-                    </div>
-                    <div className="name-box bg-primary m-3">
-                        <input className="bg-primary" type="text" placeholder={this.state.participants[3]} />
-                    </div>
-                </div> */}
             </>
         )
     }

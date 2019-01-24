@@ -7,12 +7,12 @@ const client = challonge.createClient({
     apiKey: process.env.API_KEY
 });
 
-const createTournament = () => {
+const createTournament = (name: string, url: string) => {
     return new Promise((resolve, reject) => {
         client.tournaments.create({
             tournament: {
-                name: 'Smash Bros Tournament',
-                url: 'new_smash_tournament',
+                name,
+                url,
                 tournamentType: 'single elimination',
             }, callback: (err: any, data: any) => {
                 if (err) reject(err);
@@ -34,11 +34,11 @@ const getTournament = () => {
     })
 };
 
-const addParticipants = () => {
+const addParticipants = (username: string) => {
     return new Promise((resolve, reject) => {
         client.participants.create({
             id: '5454332',
-            participants: [][name],
+            participants: [][username],
             callback: (err: any, data: any) => {
                 if (err) reject(err);
                 resolve(data);

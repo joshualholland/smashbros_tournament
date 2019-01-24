@@ -4,7 +4,7 @@ const Jumbotron = () => {
     return (
         <div className="jumbotron jumbotron-fluid">
             <div className="container">
-                <img src="images/sbu.jpg" alt="Smash Bros"/>
+                <img className="img-fluid" src="images/sbu.jpg" alt="Smash Bros" style={{ width: 100 + '%' }} />
             </div>
         </div>
     )

@@ -15,9 +15,22 @@
     clear: left;
 }
 
+.section {
+    width: 70%; 
+    height: 85vh; 
+    float: left;
+}
+
+.section > div:nth-child(2n) {
+    margin-bottom: 40px;
+}
+
 .name-box {
-    width: 25px;
-    height: 10px;
+    width: 160px;
+    height: 60px;
+    border: 1px solid black;
+    margin: 10px 0;
+    padding: 10px 10px 10px 20px;
 }
 
 .bracket-line {

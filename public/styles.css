@@ -1,6 +1,9 @@
-/* .wrapper {
-    display: flex;
-} */
+.jumbotron {
+    background-image: url('images/sbu.jpg');
+    background-size: 35% 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+}
 
 .participants, .tourn-info {
     display: flex;
@@ -16,16 +19,16 @@
 }
 
 .section {
-    width: 70%; 
+    width: 10.5%; 
     height: 85vh; 
     float: left;
 }
 
 .section > div:nth-child(2n) {
-    margin-bottom: 40px;
+    margin-bottom: 44px;
 }
 
-.name-box {
+.section > div {
     width: 160px;
     height: 60px;
     border: 1px solid black;
@@ -33,10 +36,34 @@
     padding: 10px 10px 10px 20px;
 }
 
-.bracket-line {
-    border-top: 2px solid #C000CC;
-    position: absolute;
-    float: right;
-    width: 90px;
-    margin-left: 10%;
+.connector {
+    width: 10%;
+    float: left;
+}
+
+.connector > div {
+    border: 1px solid #C000CC; 
+    border-left: none; 
+    height: 92px; 
+    width: 100%; 
+    margin: 82px 0 0 1px;
+}
+
+.connector > div:first-child {
+    margin: 28px 0 0 1px;
+}
+
+.line {
+    width: 5%; 
+    height: 520px; 
+    float: left; 
+}
+
+.line > div {
+    border-top: 1px solid #C000CC; 
+    margin: 180px 0 0 1px; 
+}
+
+.line > div:first-child {
+    margin-top: 55px
 }

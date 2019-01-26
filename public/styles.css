@@ -25,15 +25,15 @@
 }
 
 .section > div:nth-child(2n) {
-    margin-bottom: 44px;
+    margin-bottom: 2.750em;
 }
 
 .section > div {
-    width: 160px;
-    height: 60px;
+    width: 10.000em;
+    height: 3.750em;
     border: 1px solid black;
-    margin: 10px 0;
-    padding: 10px 10px 10px 20px;
+    margin: 0.625em 0;
+    padding: 0.625em 0.625em 0.625em 1.250em;
 }
 
 .connector {
@@ -44,26 +44,26 @@
 .connector > div {
     border: 1px solid #C000CC; 
     border-left: none; 
-    height: 92px; 
+    height: 5.750em; 
     width: 100%; 
-    margin: 82px 0 0 1px;
+    margin: 5.125em 0 0 1px;
 }
 
 .connector > div:first-child {
-    margin: 28px 0 0 1px;
+    margin: 1.750em 0 0 1px;
 }
 
 .line {
     width: 5%; 
-    height: 520px; 
+    height: 32.500em; 
     float: left; 
 }
 
 .line > div {
     border-top: 1px solid #C000CC; 
-    margin: 180px 0 0 1px; 
+    margin: 11.250em 0 0 1px; 
 }
 
 .line > div:first-child {
-    margin-top: 55px
+    margin-top: 3.438em
 }

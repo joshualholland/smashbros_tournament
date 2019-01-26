@@ -57,22 +57,20 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
     render() {
         return (
             <>
-                <div id="container">
-                    <div className="title mx-auto text-center">
-                        <h1>{this.state.tournament.name}</h1>
-                    </div>
-                    <div className="section">
-                        {this.renderBoxes()}
-                    </div>
-                    <div className="connector">
-                        {this.renderConnector()}
-                    </div>
-                    <div className="line">
-                        {this.renderConnector()}
-                    </div>
-                    <div className="second-rnd">
-                        {this.renderConnector()}
-                    </div>
+                <div className="title mx-auto text-center">
+                    <h1>{this.state.tournament.name}</h1>
+                </div>
+                <div className="section">
+                    {this.renderBoxes()}
+                </div>
+                <div className="connector">
+                    {this.renderConnector()}
+                </div>
+                <div className="line">
+                    {this.renderConnector()}
+                </div>
+                <div className="second-rnd">
+                    {this.renderConnector()}
                 </div>
             </>
         )

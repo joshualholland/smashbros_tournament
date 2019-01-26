@@ -36,7 +36,7 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
         }
     };
 
-    renderBoxes() {
+    renderFirstBoxes() {
         return (
             this.state.participants.map((participant) => {
                 return (<div className="bg-primary">{participant.username}</div>)
@@ -44,7 +44,26 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
         )
     }
 
-    renderConnector() {
+    renderSecondBoxes() {
+        let half_part = Math.ceil(this.state.participants.length / 2);
+        let conn_arr = [];
+        console.log(half_part)
+        for (let i = 0; i < half_part; i++) {
+            conn_arr.push(<div className="bg-primary"></div>)
+        }
+        return (conn_arr)
+    }
+
+    renderThirdBoxes() {
+        let fourth_part = Math.ceil(this.state.participants.length / 4);
+        let arr = [];
+        for (let i = 0; i < fourth_part; i++) {
+            arr.push(<div className="bg-primary"></div>)
+        }
+        return (arr)
+    }
+
+    renderConnector1() {
         let half_part = Math.ceil(this.state.participants.length / 2);
         let conn_arr = [];
         console.log(half_part)
@@ -54,6 +73,15 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
         return (conn_arr)
     };
 
+    renderConnector2() {
+        let fourth_part = Math.ceil(this.state.participants.length / 4);
+        let conn2_arr = [];
+        for (let i = 0; i < fourth_part; i++) {
+            conn2_arr.push(<div></div>)
+        }
+        return (conn2_arr)
+    }
+
     render() {
         return (
             <>
@@ -61,16 +89,25 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
                     <h1>{this.state.tournament.name}</h1>
                 </div>
                 <div className="section">
-                    {this.renderBoxes()}
+                    {this.renderFirstBoxes()}
                 </div>
                 <div className="connector">
-                    {this.renderConnector()}
+                    {this.renderConnector1()}
                 </div>
                 <div className="line">
-                    {this.renderConnector()}
+                    {this.renderConnector1()}
                 </div>
                 <div className="second-rnd">
-                    {this.renderConnector()}
+                    {this.renderSecondBoxes()}
+                </div>
+                <div className="connector" id="conn2">
+                    {this.renderConnector2()}
+                </div>
+                <div className="line" id="line2">
+                    {this.renderConnector2()}
+                </div>
+                <div className="third-rnd">
+                    {this.renderThirdBoxes()}
                 </div>
             </>
         )

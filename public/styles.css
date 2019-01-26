@@ -67,3 +67,53 @@
 .line > div:first-child {
     margin-top: 3.438em
 }
+
+.second-rnd {
+    float: left;
+    width: 9.9em;
+}
+
+.second-rnd > div {
+    width: 10.000em;
+    height: 3.750em;
+    border: 1px solid black;
+    margin: 7.36em 2em 0 0;
+    padding: 0.625em 0.625em 0.625em 1.250em;
+}
+
+.second-rnd > div:first-child {
+    margin-top: 2.2em
+}
+
+#conn2 > div {
+    margin-top: 11em;
+    height: 11em;
+}
+
+#conn2 > div:first-child {
+    margin-top: 4em;
+}
+
+#line2 > div {
+    margin-top: 22em;
+}
+
+#line2 > div:first-child {
+    margin-top: 9em;
+}
+
+.third-rnd {
+    float: left;
+}
+
+.third-rnd > div {
+    width: 10.000em;
+    height: 3.750em;
+    border: 1px solid black;
+    margin: 16.36em 2em 0 0;
+    padding: 0.625em 0.625em 0.625em 1.250em;
+}
+
+.third-rnd > div:first-child {
+    margin-top: 8.2em
+}

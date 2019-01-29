@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
-            <a className="navbar-brand text-white">Smash Bros Ultimate Tournament Generator</a>
+            <a className="navbar-brand text-white">Smash Bros Ultimate Tournament Utility</a>
             <div className="navbar-nav ml-auto" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item active">

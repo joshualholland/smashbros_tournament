@@ -1,6 +1,7 @@
 import * as React from 'react';
 import _ from 'lodash';
 import json from '../utils/api';
+import { array } from 'prop-types';
 
 export default class Bracket extends React.Component<ITournamentProps, ITournamentState> {
     constructor(props: ITournamentProps) {
@@ -63,6 +64,15 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
         return (arr)
     }
 
+    renderFinal() {
+        let final = Math.ceil(this.state.participants.length / 8);
+        let final_arr = [];
+        for (let i = 0; i <final; i++) {
+            final_arr.push(<div className="bg-primary"></div>)
+        }
+        return (final_arr)
+    }
+
     renderConnector1() {
         let half_part = Math.ceil(this.state.participants.length / 2);
         let conn_arr = [];
@@ -80,6 +90,15 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
             conn2_arr.push(<div></div>)
         }
         return (conn2_arr)
+    }
+
+    renderConnector3() {
+        let final_conn = Math.ceil(this.state.participants.length / 8);
+        let conn3_arr = [];
+        for (let i = 0; i < final_conn; i++) {
+            conn3_arr.push(<div></div>)
+        }
+        return (conn3_arr)
     }
 
     render() {
@@ -108,6 +127,15 @@ export default class Bracket extends React.Component<ITournamentProps, ITourname
                 </div>
                 <div className="third-rnd">
                     {this.renderThirdBoxes()}
+                </div>
+                <div className="connector" id="conn3">
+                    {this.renderConnector3()}
+                </div>
+                <div className="line" id="line3">
+                    {this.renderConnector3()}
+                </div>
+                <div className="final">
+                    {this.renderFinal()}
                 </div>
             </>
         )

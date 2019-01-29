@@ -3,6 +3,14 @@
     background-size: 35% 100%;
     background-repeat: no-repeat;
     background-position: top;
+    border-bottom: solid black;
+    height: 14em;
+}
+
+body {
+    background-image: url("images/body-back.jpg");
+    background-position: center center;
+    background-size: cover;
 }
 
 .participants, .tourn-info {
@@ -13,131 +21,21 @@
     border: 3px solid black;
 }
 
-.bracket {
-    float: left;
-    clear: left;
-}
-
-.section {
-    margin-left: 3em;
-    width: 9.9em; 
-    height: 85vh; 
-    float: left;
-}
-
-.section > div:nth-child(2n) {
-    margin-bottom: 2.750em;
-}
-
-.section > div {
-    width: 10.000em;
-    height: 3.750em;
-    border: 1px solid black;
-    margin: 0.625em 0;
-    padding: 0.625em 0.625em 0.625em 1.250em;
-}
-
-.connector {
-    width: 5em;
-    float: left;
-}
-
-.connector > div {
-    border: 1px solid #C000CC; 
-    border-left: none; 
-    height: 5.750em; 
-    width: 100%; 
-    margin: 5.125em 0 0 1px;
-}
-
-.connector > div:first-child {
-    margin: 1.750em 0 0 1px;
-}
-
-.line {
-    width: 5%; 
-    height: 32.500em; 
-    float: left; 
-}
-
-.line > div {
-    border-top: 1px solid #C000CC; 
-    margin: 11.250em 0 0 1px; 
-}
-
-.line > div:first-child {
-    margin-top: 3.438em
-}
-
-.second-rnd {
-    float: left;
-    width: 9.9em;
-}
-
-.second-rnd > div {
-    width: 10.000em;
-    height: 3.750em;
-    border: 1px solid black;
-    margin: 7.36em 2em 0 0;
-    padding: 0.625em 0.625em 0.625em 1.250em;
-}
-
-.second-rnd > div:first-child {
-    margin-top: 2.2em
-}
-
-#conn2 > div {
-    margin-top: 11em;
-    height: 11em;
-}
-
-#conn2 > div:first-child {
+.home-head {
+    font-size: 3em;
+    text-align: center;
+    font-weight: 800;
     margin-top: 4em;
 }
 
-#conn3 > div {
-    margin-top: 10.5em;
-    height: 19em;
+.home-text {
+    font-weight: 400;
+    text-align: center;
+    font-size: 1.4em;
+    margin-top: 1em;
 }
 
-#line2 > div {
-    margin-top: 22em;
-}
-
-#line2 > div:first-child {
-    margin-top: 9em;
-}
-
-#line3 > div {
-    margin-top: 20em;
-}
-
-.third-rnd {
-    float: left;
-    width: 9.9em;
-}
-
-.third-rnd > div {
-    width: 10.000em;
-    height: 3.750em;
-    border: 1px solid black;
-    margin: 16.36em 2em 0 0;
-    padding: 0.625em 0.625em 0.625em 1.250em;
-}
-
-.third-rnd > div:first-child {
-    margin-top: 8.2em
-}
-
-.final {
-    float: left;
-    width: 9.9em;
-}
-
-.final > div {
-    width: 10.000em;
-    height: 3.750em;
-    border: 1px solid black;
-    margin: 18em 2em 0 0;
-    padding: 0.625em 0.625em 0.625em 1.250em;
+.home-button {
+    margin-top: 2em;
+    border-radius: 20px;
 }

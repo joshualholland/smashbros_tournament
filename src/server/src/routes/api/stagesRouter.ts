@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import * as Stage from '../db/stages';
+import DB from '../../db';
 
 let router = Router();
 
@@ -7,16 +7,16 @@ router.get('/:id?', async (req, res, next) => {
     let id = req.params.id;
     if (id) {
         try {
-            let stage = await Stage.getStage(id);
-            res.send(stage);
+            let starter = await DB.Starters.getStarter(id);
+            res.send(starter);
         } catch (e) {
             console.log(e);
             res.status(500);
         }
     } else {
         try {
-            let stage = await Stage.getStages();
-            res.send(stage);
+            let starter = await DB.Starters.getStarters();
+            res.send(starter);
         } catch (e) {
             console.log(e);
             res.status(500);

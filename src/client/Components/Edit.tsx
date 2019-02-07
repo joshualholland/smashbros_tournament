@@ -1,20 +1,22 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import { json } from '../utils/api';
 
 export default class Edit extends React.Component<IEditProps, IEditState> {
     constructor(props: IEditProps) {
         super(props)
         this.state = {
-            username: ''
+            player: {
+                username: '',
+            }
         }
     }
 
     async componentWillMount() {
         try {
-            let res = await fetch(`/api/players/${this.props.match.params.id}`);
-            let data = await res.json();
+            let data = await json(`/api/players/${this.props.match.params.id}`)
             console.log(data)
-            this.setState({ username: data[0].username })
+            this.setState({ player: data })
         } catch (e) {
             console.log(e)
         }
@@ -23,13 +25,7 @@ export default class Edit extends React.Component<IEditProps, IEditState> {
     async handleEdit(e: any) {
         e.preventDefault();
         try {
-            await fetch(`/api/players/${this.props.match.params.id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(this.state)
-            })
+            await json(`/api/players/${this.props.match.params.id}`, 'PUT', this.state);
             this.props.history.replace('/players');
         } catch (e) { console.log(e) }
     };
@@ -38,9 +34,9 @@ export default class Edit extends React.Component<IEditProps, IEditState> {
         return (
             <div className="card">
                 <div className="card-body">
-                    <h5 className="card-title">{this.state.username}</h5>
+                    <h5 className="card-title">{this.state.player.username}</h5>
                     <label className="card-text">New Username:</label>
-                    <input type="text" placeholder='new username here' className='form-control' value={this.state.username} onChange={(e) => this.setState({ username: e.target.value })} />
+                    <input type="text" placeholder='new username here' className='form-control' value={this.state.player.username} onChange={(e) => this.setState(Object.assign({ ...this.state.player, username: e.target.value }))} />
                     <button type='submit' className="btn btn-secondary" onClick={(e) => this.handleEdit(e)}>Edit Player</button>
                 </div>
             </div>
@@ -52,5 +48,7 @@ export default class Edit extends React.Component<IEditProps, IEditState> {
 interface IEditProps extends RouteComponentProps<{ id: string }> { };
 
 interface IEditState {
-    username: string
+    player: {
+        username: any
+    }
 };

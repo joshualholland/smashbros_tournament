@@ -12,7 +12,7 @@ const Navbar = () => {
                                 <Link to='/' className="nav-link mr-sm-2 text-white" href="#">Home <span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/register' className="nav-link mr-sm-2 text-white">Register</Link>
+                                <Link to='/login' className='nav-link mr-sm-0 text-white'>Login</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to='/players' className="nav-link mr-sm-0 text-white" href="#">Players</Link>

@@ -1,5 +1,6 @@
 import * as React from 'react';
-// import json from '../utils/api';
+import { Link } from 'react-router-dom';
+import { json } from '../utils/api';
 
 export default class Stage extends React.Component<IRPSProps, IRPSState> {
     constructor(props: IRPSProps) {
@@ -11,25 +12,15 @@ export default class Stage extends React.Component<IRPSProps, IRPSState> {
 
     async componentWillMount() {
         try {
-            let res = await fetch('/api/stages')
-            let data = await res.json();
-            let stagesArray = data.map((key: any) => {
-                return {
-                    id: key.id,
-                    name: key.name,
-                    url: key.url
-                }
-            });
-            this.setState({ stages: stagesArray })
-            console.log(res)
-
+            let data = await json('/api/starter');
+            this.setState({ stages: data});
         } catch (e) {
             console.log(e)
         }
     }
 
-    strikeImage() {
-
+    strikeImage(e: any) {
+       e.currentTarget.style.filter = 'grayscale(1)'; 
     }
 
     renderStages() {
@@ -38,7 +29,7 @@ export default class Stage extends React.Component<IRPSProps, IRPSState> {
                 console.log(stage)
                 return (
                     <div className="col-md-4" style={{ display: 'inline-block' }}>
-                        <img src={stage.url} style={{ height: 'auto', maxWidth: 100 + '%', cursor: 'pointer' }} />
+                        <img className="stage-img" src={stage.url} style={{ height: 'auto', maxWidth: 100 + '%', cursor: 'pointer' }} onClick={(e) => this.strikeImage(e)} />
                         <h4 className="text-primary">{stage.name}</h4>
                     </div>
                 )
@@ -68,6 +59,9 @@ export default class Stage extends React.Component<IRPSProps, IRPSState> {
                 <p className="text-primary text-center">(Strike a stage by clicking it)</p>
                 <div>
                     {this.renderStages()}
+                </div>
+                <div className='text-center'>
+                    <Link to='/counters' className='btn btn-danger mt-3 mb-5'>Ready for counterpicks?</Link>
                 </div>
             </>
         )

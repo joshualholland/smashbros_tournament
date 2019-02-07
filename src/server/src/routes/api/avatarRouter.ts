@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import * as Avatar from '../db/avatar';
+import DB from '../../db';
 
 let router = Router();
 
@@ -7,7 +7,7 @@ router.get('/:id?', async (req, res, next) => {
     let id = req.params.id;
     if (id) {
         try {
-            let avatar = await Avatar.getAvatar(id);
+            let avatar = await DB.Avatars.getAvatar(id);
             res.send(avatar);
         } catch (e) {
             console.log(e);
@@ -15,7 +15,7 @@ router.get('/:id?', async (req, res, next) => {
         }
     } else {
         try {
-            let avatars = await Avatar.getAvatars();
+            let avatars = await DB.Avatars.getAvatars();
             res.send(avatars);
         } catch (e) {
             console.log(e);

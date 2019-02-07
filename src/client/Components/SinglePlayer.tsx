@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import { any } from 'prop-types';
+import { json } from '../utils/api';
 
 export default class SinglePlayer extends React.Component<ISingleProps, ISingleState> {
     constructor(props: ISingleProps) {
@@ -12,25 +12,12 @@ export default class SinglePlayer extends React.Component<ISingleProps, ISingleS
 
     async componentWillMount() {
         try {
-            let res = await fetch(`/api/players/${this.props.match.params.id}`)
-            let player = await res.json();
-            this.setState({ player: player[0] })
+            let data = await json(`/api/players/${this.props.match.params.id}`);
+            this.setState({ player: data[0] });
         } catch (e) {
             console.log(e)
         }
-        console.log(this.state.player)
     };
-
-    async deletePlayer() {
-        try {
-            await fetch(`/api/players/${this.props.match.params.id}`, {
-                method: 'DELETE'
-            });
-            this.props.history.replace('/')
-        } catch (e) {
-            console.log(e)
-        }
-    }
 
     render() {
         return (
@@ -39,7 +26,6 @@ export default class SinglePlayer extends React.Component<ISingleProps, ISingleS
                     <h5 className="card-title">{this.state.player.username}</h5>
                     <p className="card-text">Possible Win Loss Ratio here</p>
                     <Link to={`/edit/${this.props.match.params.id}`} style={{ float: 'left' }} className="btn btn-secondary mr-2">Edit Player</Link>
-                    <button className='btn btn-secondary' style={{ float: 'left' }} onClick={() => this.deletePlayer()}>Delete</button>
                 </div>
             </div>
         )

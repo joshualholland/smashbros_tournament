@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { json } from '../utils/api';
 
 import PlayerCard from './PlayerCard';
 import { number, any } from 'prop-types';
@@ -14,15 +15,8 @@ export default class Current extends React.Component<ICurrentProps, ICurrentStat
 
     async componentWillMount() {
         try {
-            let res = await fetch('/api/players')
-            let data = await res.json();
-            let playerArray = data.map((key: any) => {
-                return {
-                    id: key.id,
-                    username: key.username
-                }
-            })
-            this.setState({ players: playerArray })
+            let data = await json('/api/players');
+            this.setState({ players: data });
         } catch (e) {
             console.log(e)
         }

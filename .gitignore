@@ -1,3 +1,2 @@
 node_modules
-/src/server/src/config
-.env
+/src/server/src/config/development.ts

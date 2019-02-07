@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import playerRouter from './players';
-import avatarRouter from './avatarRouter';
-import stagesRouter from './stagesRouter';
+import authRouter from './auth';
+import apiRouter from './api';
+import twilioRouter from './twilio';
 
 let router = Router();
 
-router.use('/players', playerRouter);
-router.use('/avatars', avatarRouter);
-router.use('/stages', stagesRouter);
+router.use('/auth', authRouter);
+router.use('/api', apiRouter);
+router.use('/sms', twilioRouter);
 
 export default router;

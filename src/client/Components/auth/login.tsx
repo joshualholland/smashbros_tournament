@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import { json, SetAccessToken } from '../../utils/api';
+import { json, SetAccessToken, User } from '../../utils/api';
 
 export default class Login extends React.Component<ILoginProps, ILoginState> {
     constructor(props: ILoginProps) {
@@ -11,13 +11,27 @@ export default class Login extends React.Component<ILoginProps, ILoginState> {
         }
     }
 
+    private saving: boolean = false;
+
+    async componentDidMount() {
+        if (User && User.role === 'admin') {
+            this.props.history.push('/admin')
+        } if (User && User.role === 'guest') {
+            this.props.history.push(`/player/${User.userid}`);
+        }
+    }
+
     async login(e: any) {
         e.preventDefault();
+
+        if(this.saving) return;
+
         let user: { email: string, password: string } = {
             email: this.state.email,
             password: this.state.password
         };
         try {
+            this.saving = true;
             let result = await json('/auth/login', 'POST', user)
             
             if(result) {

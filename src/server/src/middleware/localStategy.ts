@@ -13,7 +13,6 @@ passport.use(new LocalStrategy.Strategy({
 }, async (email, password, done) => {
     try {
         let [user]: any = await DB.Players.findByEmail(email);
-        console.log(user)
         if (user && ComparePassword(password, user.password)) {
             done(null, user)
         } else {

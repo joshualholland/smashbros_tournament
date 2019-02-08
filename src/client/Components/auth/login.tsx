@@ -17,7 +17,7 @@ export default class Login extends React.Component<ILoginProps, ILoginState> {
         if (User && User.role === 'admin') {
             this.props.history.push('/admin')
         } if (User && User.role === 'guest') {
-            this.props.history.push(`/player/${User.userid}`);
+            this.props.history.push(`/edit/${User.userid}`);
         }
     }
 

@@ -5,7 +5,6 @@ import config from '../../config';
 import DB from '../../db';
 
 export const createToken = async (payload: IPayload) => {
-    console.log(payload)
     let tokenID: any = await DB.Tokens.insert(payload.userid);
     payload.accesstokenid = tokenID.insertId;
     payload.unique = crypto.randomBytes(32).toString('hex');

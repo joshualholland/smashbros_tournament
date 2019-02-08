@@ -6,7 +6,6 @@ import config from '../../config';
 const router = express.Router();
 
 const isAdmin: RequestHandler = (req, res, next) => {
-    console.log(req.user)
     if(!req.user || req.user.role !== 'admin') {
         res.sendStatus(401)
     } else {
@@ -16,7 +15,6 @@ const isAdmin: RequestHandler = (req, res, next) => {
 
 router.post('/', isAdmin, async (req, res,) => {
     let client = twilio(config.twilio.TWILIO_ACCOUNT_SID, config.twilio.TWILIO_AUTH_TOKEN)
-    console.log(client)
     try {
         res.header('Content-Type', 'application/json');
         client.messages.create({

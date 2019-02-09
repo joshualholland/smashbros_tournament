@@ -5,10 +5,8 @@ export default class SMSform extends React.Component<ISMSProps, ISMSState> {
     constructor(props: ISMSProps) {
         super(props)
         this.state = {
-            message: {
-                to: null,
-                body: null
-            }
+            to: null,
+            body: null
         }
     }
     private submitting: boolean = false;
@@ -21,6 +19,7 @@ export default class SMSform extends React.Component<ISMSProps, ISMSState> {
 
         try {
             this.submitting = true
+            console.log(this.state)
             let data = await json('/sms/message', 'POST', this.state);
             if (data) {
                 this.submitting = false;
@@ -47,7 +46,7 @@ export default class SMSform extends React.Component<ISMSProps, ISMSState> {
                                         type="tel"
                                         name="to"
                                         id="to"
-                                        onChange={(e) => this.setState(Object.assign({ ...this.state.message, to: e.target.value }))}
+                                        onChange={(e) => this.setState({ to: e.target.value })}
                                     />
                                 </div>
                                 <div>
@@ -56,7 +55,7 @@ export default class SMSform extends React.Component<ISMSProps, ISMSState> {
                                         className='form-control mb-3'
                                         name="body"
                                         id="body"
-                                        onChange={(e) => this.setState(Object.assign({ ...this.state.message, body: e.target.value }))} />
+                                        onChange={(e) => this.setState({ body: e.target.value })} />
                                 </div>
                                 <button className='btn btn-danger' type="submit">Send message</button>
                             </form>
@@ -70,8 +69,6 @@ export default class SMSform extends React.Component<ISMSProps, ISMSState> {
 
 interface ISMSProps { };
 interface ISMSState {
-    message: {
-        to: number,
-        body: string
-    }
+    to: any,
+    body: string
 };

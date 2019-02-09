@@ -7,7 +7,7 @@ export default class Login extends React.Component<ILoginProps, ILoginState> {
         super(props)
         this.state = {
             email: null,
-            password: null
+            password: null,
         }
     }
 
@@ -17,24 +17,24 @@ export default class Login extends React.Component<ILoginProps, ILoginState> {
         if (User && User.role === 'admin') {
             this.props.history.push('/admin')
         } if (User && User.role === 'guest') {
-            this.props.history.push(`/edit/${User.userid}`);
+            this.props.history.push('/account');
         }
     }
 
     async login(e: any) {
         e.preventDefault();
 
-        if(this.saving) return;
+        if (this.saving) return;
 
         let user: { email: string, password: string } = {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
         };
         try {
             this.saving = true;
             let result = await json('/auth/login', 'POST', user)
-            
-            if(result) {
+
+            if (result) {
                 SetAccessToken(result.token, { userid: result.userid, role: result.role });
                 if (result.role === 'admin') {
                     this.props.history.push('/admin')
@@ -42,7 +42,7 @@ export default class Login extends React.Component<ILoginProps, ILoginState> {
                     this.props.history.push('/')
                 }
             } else {
-               
+
             }
         } catch (e) { throw e }
     }
@@ -57,16 +57,18 @@ export default class Login extends React.Component<ILoginProps, ILoginState> {
                                 <label className='text-primary'>Email</label>
                                 <input
                                     type='email'
-                                    className='form-control'
+                                    className='form-control mb-3'
                                     value={this.state.email}
                                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => this.setState({ email: e.target.value })} />
                                 <label className='text-primary'>Password</label>
                                 <input
                                     type='password'
-                                    className='form-control'
+                                    className='form-control mb-3'
                                     value={this.state.password}
                                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => this.setState({ password: e.target.value })} />
-                                <button type='submit' className='btn btn-danger'>Login</button>
+                                <div className='text-center'>
+                                    <button type='submit' className='btn btn-danger'>Login</button>
+                                </div>
                             </form>
                             <Link to='/register' className='text-primary'>Not a registered player? Register Here!</Link>
                         </div>
@@ -80,6 +82,6 @@ export default class Login extends React.Component<ILoginProps, ILoginState> {
 interface ILoginProps extends RouteComponentProps { };
 interface ILoginState {
     email: string,
-    password: string
+    password: string,
 };
 

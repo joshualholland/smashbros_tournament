@@ -9,13 +9,16 @@ const Navbar = () => {
                 <div className="navbar-nav ml-auto" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item active">
-                                <Link to='/' className="nav-link mr-sm-2 text-white" href="#">Home <span className="sr-only">(current)</span></Link>
+                                <Link to='/' className="nav-link mr-2 text-white" href="#">Home <span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/login' className='nav-link mr-sm-0 text-white'>Login</Link>
+                                <Link to='/players' className="nav-link mr-0 text-white" href="#">Players</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/players' className="nav-link mr-sm-0 text-white" href="#">Players</Link>
+                                <Link to='/account' className='nav-link mr-0 text-white'>Account</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to='/login' className='nav-link mr-0 text-white'>Login</Link>
                             </li>
                         </ul>
                 </div>

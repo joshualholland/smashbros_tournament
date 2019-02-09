@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { json } from '../utils/api';
 
 import PlayerCard from './PlayerCard';
-import { number, any } from 'prop-types';
 
 export default class Current extends React.Component<ICurrentProps, ICurrentState> {
     constructor(props: ICurrentProps) {
@@ -25,7 +24,6 @@ export default class Current extends React.Component<ICurrentProps, ICurrentStat
     returnPlayers() {
         return (
             this.state.players.map((player) => {
-                console.log(player)
                 return (
                     <PlayerCard player={player} key={player.id} />
                 )

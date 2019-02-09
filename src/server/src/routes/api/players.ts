@@ -42,13 +42,15 @@ router.delete('/:id', isAdmin, async (req, res) => {
     }
 });
 
-router.put('/:id', isAdmin, async (req, res) => {
+router.put('/:id', async (req, res) => {
     let id = req.params.id
     let user = req.body
     try {
-        let placeHolderColumns = Object.keys(user).map(key => [`${key}="${user[key]}"`]);
-        let updatePlayer = placeHolderColumns.join(', ');
-        await DB.Players.editPlayer(updatePlayer, id);
+        // let placeHolderColumns = Object.keys(user).map(key => [`${key}="${user[key]}"`]);
+        // let updatePlayer = placeHolderColumns.join(', ');
+        let columns = Object.keys(user);
+        let values = Object['values'](user);
+        await DB.Players.editPlayer(columns, values, id);
         res.json({ message: 'Player Updated' })
     } catch (e) {
         console.log(e)

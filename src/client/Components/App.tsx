@@ -7,7 +7,6 @@ import Current from './Players';
 import Navbar from './Navbar';
 import Jumbotron from './Jumbotron';
 import Registration from './auth/Registration';
-import SinglePlayer from './SinglePlayer';
 import Edit from './auth/Edit';
 import Stage from './Stage';
 import Counterpicks from './Counterpicks';
@@ -27,7 +26,6 @@ export default class App extends React.Component {
                         <Route exact path='/' component={Home} />
                         <Route exact path='/players' component={Current} />
                         <Route exact path='/register' component={Registration} />
-                        <Route exact path='/player/:id' component={SinglePlayer} />
                         <Route exact path='/edit' component={Edit} />
                         <Route exact path='/starter' component={Stage} />
                         <Route exact path='/counters' component={Counterpicks} />

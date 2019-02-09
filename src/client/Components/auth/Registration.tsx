@@ -37,6 +37,10 @@ class AllItems extends React.Component<IAllProps, IAllState> {
         } catch (e) { console.log(e) }
     }
 
+    selectAvatar(e: any) {
+        e.currentTarget.style.border = 'solid #C000CC';  
+    }
+
     renderAvatars() {
         return (
             this.state.avatars.map((avatar) => {
@@ -51,7 +55,7 @@ class AllItems extends React.Component<IAllProps, IAllState> {
                             alignItems: 'center',
                             overflow: 'hidden'
                         }}>
-                        <img src={avatar.url} className='card-img-top' alt={avatar.name}></img>
+                        <img src={avatar.url} className='card-img-top' alt={avatar.name} onClick={(e) => this.selectAvatar(e)}></img>
                     </div>
                 )
             })

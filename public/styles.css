@@ -1,10 +1,10 @@
 .jumbotron {
     background-image: url('images/sbu.jpg');
-    background-size: 35% 100%;
+    background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: top;
     border-bottom: solid black;
-    height: 14em;
+    /* height: 14em; */
 }
 
 body {

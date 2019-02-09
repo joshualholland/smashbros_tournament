@@ -11,18 +11,16 @@ export default class Account extends React.Component<IAccountProps, IAccountStat
     }
 
     async componentDidMount() {
-        if (!User) {
-            this.props.history.replace('/login')
-        }
         if (User && User.role === 'admin') {
             this.props.history.push('/admin')
-        }
-        if (User && User.role === 'guest') {
+        } else if (User && User.role === 'guest') {
             try {
                 let data = await json(`/api/players/${User.userid}`)
                 this.setState({ player: data })
             } catch (e) { console.log(e) }
-        } 
+        } else {
+            this.props.history.push('/login')
+        }
     };
 
     render() {

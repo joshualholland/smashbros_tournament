@@ -8,10 +8,12 @@ export default class Login extends React.Component<ILoginProps, ILoginState> {
         this.state = {
             email: null,
             password: null,
+            status: null
         }
     }
 
     private saving: boolean = false;
+    private alert: JSX.Element = null;
 
     async componentDidMount() {
         if (User && User.role === 'admin') {
@@ -35,6 +37,7 @@ export default class Login extends React.Component<ILoginProps, ILoginState> {
             let result = await json('/auth/login', 'POST', user)
 
             if (result) {
+                this.setState({ status: 'Success'})
                 SetAccessToken(result.token, { userid: result.userid, role: result.role });
                 if (result.role === 'admin') {
                     this.props.history.push('/admin')
@@ -42,12 +45,19 @@ export default class Login extends React.Component<ILoginProps, ILoginState> {
                     this.props.history.push('/')
                 }
             } else {
-
+                this.setState({ status: 'Error'})
             }
         } catch (e) { throw e }
     }
 
     render() {
+
+        if (this.state.status === 'Success') {
+            this.alert = <div className='alert alert-danger p-1 m-3' role='alert'>Log in Successful.</div>
+        } else if (this.state.status === 'Error') {
+            this.alert = <div className='alert alert-primary p-1 m-3' role='alert'>Error Logging in</div>
+        }
+
         return (
             <>
                 <main className='container'>
@@ -71,6 +81,7 @@ export default class Login extends React.Component<ILoginProps, ILoginState> {
                                 </div>
                             </form>
                             <Link to='/register' className='text-primary'>Not a registered player? Register Here!</Link>
+                            {this.alert}
                         </div>
                     </section>
                 </main>
@@ -83,5 +94,6 @@ interface ILoginProps extends RouteComponentProps { };
 interface ILoginState {
     email: string,
     password: string,
+    status: string
 };
 

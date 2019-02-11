@@ -1,17 +1,14 @@
-# Barebones React/TypeScript/Express/Sass Boilerplate
-This project is a starting point for a TypeScript based React app that also has a local API server using express.
+# Smash Bros. Ultimate Tournament
+This project was inspired by a smash bros. tournament I held at my house between my friends and I. We all got confused on what the rules were and locating people to come sit in their chairs to play proved to be a challenge. I made this application to help any tournament operators, big or small. 
 
-There are 2 different Webpack configurations. One for the server and one for the client.
+## Stage Striking
+Out of the many, many stages in the game, only some are allowed in official tournament. The stage striking portion of this app allows players to choose out of the legal stages which they will play for that match.
 
-## Server
-The server build process compiles the TypeScript files found in `/src/server` into a single bundled JavaScript file located in the `/dist` directory.
+## Registratioin
+This application has basic guest and admin authentication. Users are automatically registered as guests, but if someone wants to be a tournament operator they may email me to get admin privileges. The reason I only allowed myself to be admin is because I used Twilio and did not want my account to be spammed with texts.
 
-## Client
-The client build process compiles the React app located in `/src/client` into a bundled located at `/public/js/app.js`.
+## Admin Privileges
+Admins can text players using twilio and delete players. All players can update only themselves, but admins can make changes to all players.
 
-The client configuration will also build the Sass files found at `/src/client/scss`. The App component imports the `app.scss` file which already includes an import for Bootstrap.
-
-## Running the project
-In order to run the server, use `npm run dev`, and the server will start on port 3000 (http://localhost:3000). 
-
-Webpack will watch the files. Once you save a file, you can refresh your browser to ensure you got the updated client files. If you only change server files, you *shouldn't* need to refresh.
+##Live demo
+https://protected-caverns-96816.herokuapp.com/
